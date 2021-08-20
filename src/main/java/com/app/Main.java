@@ -169,7 +169,7 @@ public class Main {
 
 										break;
 									case 4:
-										log.info("Enter the Customer id");
+										log.info("Enter the Customer Email id");
 										try {
 											String CustomerEmail = scanner.nextLine();
 											Customer customer2 = customerSearchService
