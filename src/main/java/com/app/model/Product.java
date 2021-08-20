@@ -9,6 +9,13 @@ public class Product {
 		super();
 	}
 
+	public Product(String productName, double productPrice) {
+		super();
+
+		this.productName = productName;
+		this.productPrice = productPrice;
+	}
+
 	public int getProductId() {
 		return productId;
 	}

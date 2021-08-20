@@ -40,12 +40,6 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	@Override
-	public int AddProduct() throws BusinessException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public int AddToCart(Cart cart) throws BusinessException {
 		int c = 0;
 		try (Connection connection = MysqlConnection.getConnection()) {
@@ -66,6 +60,46 @@ public class ProductDaoImpl implements ProductDao {
 			throw new BusinessException("Internal Error Ocurred");
 		}
 		return c;
+	}
+
+	@Override
+	public int AddProduct(Product product) throws BusinessException {
+		int c = 0;
+		try (Connection connection = MysqlConnection.getConnection()) {
+			String sql = "Insert into product(productName,productPrice) values(?,?)";
+			PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			preparedStatement.setString(1, product.getProductName());
+			preparedStatement.setDouble(2, product.getProductPrice());
+			c = preparedStatement.executeUpdate();
+			if (c == 1) {
+				ResultSet resultset = preparedStatement.getGeneratedKeys();
+				if (resultset.next()) {
+					product.setProductId(resultset.getInt(1));
+				}
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			log.error(e);
+			throw new BusinessException("Internal error ocurred");
+		}
+		return c;
+	}
+
+	@Override
+	public int UpdateProductPrice(Product product) throws BusinessException {
+		int c = 0;
+		try (Connection connection = MysqlConnection.getConnection()) {
+			String sql = "update product set productPrice= ? where productId =?";
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setDouble(2, product.getProductPrice());
+			preparedStatement.setInt(2, product.getProductId());
+			c = preparedStatement.executeUpdate();
+
+		} catch (ClassNotFoundException | SQLException e) {
+			log.error(e);
+			throw new BusinessException("Internal error ocurred");
+		}
+		return c;
+
 	}
 
 }

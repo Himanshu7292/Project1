@@ -19,15 +19,27 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public int AddProduct() throws BusinessException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public int AddToCart(Cart cart) throws BusinessException {
 
 		return productDao.AddToCart(cart);
+	}
+
+	@Override
+	public int AddProduct(Product product) throws BusinessException {
+		if (productDao.AddProduct(product) == 1 && product.getProductPrice() < 0) {
+			return 1;
+		} else {
+			throw new BusinessException("Price cannot be negative or zero");
+		}
+	}
+
+	@Override
+	public int UpdateProductPrice(Product product) throws BusinessException {
+		if (productDao.AddProduct(product) == 1 && product.getProductId() < 0 && product.getProductPrice() < 0) {
+			return 1;
+		} else {
+			throw new BusinessException("Invalid values entered....");
+		}
 	}
 
 }

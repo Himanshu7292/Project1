@@ -11,6 +11,14 @@ public class Customer {
 		super();
 	}
 
+	public Customer(String customerFirstName, String customerLastName, String customerEmail, String customerPassword) {
+		super();
+		CustomerFirstName = customerFirstName;
+		CustomerLastName = customerLastName;
+		CustomerEmail = customerEmail;
+		CustomerPassword = customerPassword;
+	}
+
 	public int getCustomerId() {
 		return CustomerId;
 	}
@@ -49,6 +57,13 @@ public class Customer {
 
 	public void setCustomerPassword(String customerPassword) {
 		CustomerPassword = customerPassword;
+	}
+
+	@Override
+	public String toString() {
+		return "Customer [CustomerId=" + CustomerId + ", CustomerFirstName=" + CustomerFirstName + ", CustomerLastName="
+				+ CustomerLastName + ", CustomerEmail=" + CustomerEmail + ", CustomerPassword=" + CustomerPassword
+				+ "]";
 	}
 
 }

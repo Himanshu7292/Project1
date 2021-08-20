@@ -6,6 +6,6 @@ import com.app.exception.BusinessException;
 import com.app.model.Product;
 
 public interface CartDao {
-	public List<Product> viewCart() throws BusinessException;
+	public List<Product> viewCart(int CustomerId) throws BusinessException;
 
 }
