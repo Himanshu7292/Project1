@@ -82,7 +82,7 @@ public class Main {
 								try {
 									product.setProductPrice(Double.parseDouble(scanner.nextLine()));
 									if (productService.AddProduct(product) == 1) {
-										log.info("New Added Successfullty");
+										log.info("New Product Added Successfullty");
 									}
 								} catch (BusinessException e) {
 									log.warn(e.getMessage());
@@ -124,8 +124,8 @@ public class Main {
 											Customer customer2 = customerSearchService
 													.getCustomerDetailsByCustomerId(CustomerId);
 											if (customer2 != null) {
-												log.info("Customer with id" + CustomerId
-														+ "found... Below are the details");
+												log.info("Customer with id " + CustomerId
+														+ " found... Below are the details");
 												log.info(customer2);
 											}
 										} catch (NumberFormatException e) {
