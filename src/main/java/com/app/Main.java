@@ -31,7 +31,7 @@ public class Main {
 		EmployeeService employeeService = new EmployeeServiceImpl();
 		CustomerSearchService customerSearchService = new CustomerSearchServiceImpl();
 		Scanner scanner = new Scanner(System.in);
-		log.info(" Welcome to Online Shopping App");
+		log.info(" Welcome to  Joy Box App");
 		log.info("====================================");
 		int choice = 0;
 		do {
