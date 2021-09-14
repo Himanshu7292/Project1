@@ -1,31 +1,31 @@
-#Console Based Shopping App
+# Console Based Shopping App
  JoyBox App
-#Technologies Used
+# Technologies Used
 * Java
 * Maven
 * JBDC
-*J Unit
+* J Unit
 * MySql
 * Log4J
-#Devloped console based application with some functionalities,
-* ##Customer Functionalities
+# Devloped console based application with some functionalities,
+* ## Customer Functionalities
    * Register
    * Login
    * View products
    * Add products to  cart
    * View cart
    * Logout
-* ##Employee Functionalities
+* ## Employee Functionalities
    * Login
    * Add new products
    * View Customers
    * Update products price
    * Logout
-#Dependencies in Joy Box App
+# Dependencies in Joy Box App
 * Maven
 * JDBC Driver
 * JUnit
-#Tools used 
+# Tools used 
 * Spring tool suite
 * JDK 1.8
 * MySql
