@@ -26,6 +26,6 @@
 * JDBC Driver
 * JUnit
 # Tools used 
-* Spring tool suite
+* Eclipse
 * JDK 1.8
 * MySql
